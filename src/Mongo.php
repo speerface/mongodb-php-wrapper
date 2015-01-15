@@ -219,7 +219,9 @@ class MongoAPI {
 
         $where = $this->setupWhere();
 
-        $cursor = $collection->find( $where )->skip( $this->offset )->limit( $this->limit );
+        $limit = is_null( $this->limit ) ? 0 : $this->limit;
+        
+        $cursor = $collection->find( $where )->skip( $this->offset )->limit( $limit );
 
         $this->reset();
 
@@ -413,7 +415,7 @@ class MongoAPI {
         $this->db = DB_NAME;
         $this->collection = '';
         $this->offset = 0;
-        $this->limit = -1;
+        $this->limit = 0;
         $this->where = array();
         $this->and_where = array();
         $this->or_where = array();
