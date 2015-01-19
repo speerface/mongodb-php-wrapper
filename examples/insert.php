@@ -21,8 +21,7 @@ $mongo->insert( $data );
 
 /* Get the items back */
 /* Since the collection resets after every query, we need to define it again */
-$mongo->collection( 'pirates' );
-$pirates = $mongo->get();
+$pirates = $mongo->collection( 'pirates' )->get();
 
 /* Print it to page */
 echo '<pre>'; 
