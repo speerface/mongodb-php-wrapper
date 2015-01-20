@@ -4,6 +4,14 @@ A PHP Class Wrapper for MongoDB that provides an Active Record method with which
 
 **Note**: Every time you perform an operation ( even within the same PHP function ), you must re-define the Collection you're drawing from, as the query resets itself each time it runs. This is to avoid situations in which Collections are modified unintentionally due to not resetting the collection name after the query is complete.
 
+## Installation
+
+1. Edit Mongo.php to add your configuration options for the `DB_NAME` (the default DB to be used in queries) and `DB_HOST` (your local MongoDB host location)
+2. Add the Mongo.php file to your application with `require '{path_to_file}/Mongo.php';`
+3. Define your Mongo instance with `$mongo = MongoAPI::getInstance();`
+
+You may then access the various methods with your `$mongo` object, e.g. `$mongo->get()` or `$mongo->where()`
+
 ## DB
 
 ### Description
